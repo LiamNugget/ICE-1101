@@ -1,3 +1,4 @@
+// Import the Random class
 import java.util.Random;
 
 public class Die {
