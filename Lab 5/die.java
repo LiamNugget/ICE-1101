@@ -1,27 +1,31 @@
 import java.util.Random;
 
 public class Die {
-
-  // Initialize variable for the current value of the die
+  // Current face value of die
   private int faceValue;
 
-  // Initialize variable for the number of sides the die has, can be set to 2
-  // for a coin.
+  // Number of sides on die
   private int sides;
 
-  // Initialize variable for the random number generator
+  // Random number generator for die
   private Random generator;
 
-  // Define constructor for the die class
+  // Default constructor
   public Die(int s) {
     sides = s;
     generator = new Random();
-    roll();
+    faceValue = generator.nextInt(sides) + 1;
   }
 
-  public void roll() { faceValue = generator.nextInt(sides) + 1; }
+  public void throwDie() {
+    generator = new Random();
+    faceValue = generator.nextInt(sides) + 1;
+  }
 
   public int getFaceValue() { return faceValue; }
 
   public String toString() {
-    return "Die with " + sides + " sides and a face
+    return getClass().getName() + "[faceValue=" + getFaceValue() +
+        ", sides=" + sides + "]";
+  }
+}
